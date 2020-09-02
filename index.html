@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hang Man</title>
+    <script src="./js/app.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- <section class="icon-list"> -->
+        <!-- Copyright Nintendo -->
+        <!-- <i class="nes-ash"></i> -->
+        <!-- <i class="nes-pokeball"></i> -->
+    <!-- </section> -->
+
+    <!-- <div class="nes-field">
+        <label for="name_field">Your name</label>
+        <input type="text" id="name_field" class="nes-input">
+      </div> -->
+    <!-- SCORE -->
+    <div class="nes-container with-title is-centered">
+        <p class="title">HANGMAN</p>
+        <h1 id="score">Score: 0</h1>
+    
+        <!-- GUESSES -->
+        <h2 id="guess">Guesses: 5</h2>
+        <h2 id="time">Time: ∞</h2>
+      </div>
+
+    <!-- HINT -->
+    <div class="nes-container is-dark with-title">
+        <p class="title">Hint</p>
+        <h2 id="hint"></h2>
+      </div>
+
+    <!-- STARTBUTTON -->
+    <button class="nes-btn" href="#" id="start">START</button>
+
+    
+    <!-- ALPHABET -->
+    <section  id="alphabet">
+    </section>
+    
+    <!-- KEYWORD -->
+    <section  class="nes-container is-rounded is-dark" id="key-word"></section>
+
+    <!-- IMAGE -->
+    <container class="images">
+        <img class= "exodia" id="right-arm";
+              class="image"
+              src=""
+              alt="profile"
+            />
+        <img class= "exodia" id="right-leg";
+              class="image"
+              src=""
+              alt="profile"
+            />
+        <img class= "exodia" id="left-arm";
+              class="image"
+              src=""
+              alt="profile"
+            />
+        <img class= "exodia" id="left-leg";
+              class="image"
+              src=""
+              alt="profile"
+            />
+        <img class= "exodia" id="head";
+              class="image"
+              src=""
+              alt="profile"
+            />
+    </container>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+body {
+   /* background-image: url('../styles/imgs/train.gif'); */
+   background-image: url('../styles/imgs/1719718.gif')
+}
+
+.exodia {
+    display: none;
+}
+
+nes-field {
+
+}
+
+#score {
+    
+}
+
+#guess {
+
+}
+
+#hint{
+   
+}
+
+#start {
+    color: whitesmoke;
+    background-color: slategray;
+}
+
+#alphabet {
+    
+}
+
+.letter-button {
+    color: rgba(30, 21, 85, 0.849);
+    background-color: rgb(178, 194, 211);
+    padding: auto;
+    margin: 8px;
+}
+
+.nes-btn is-disabled {
+
+}
+
+.nes-container.is-dark {
+    display: inline-block;
+}
+.nes-container.is-rounded.is-dark {
+    padding-right: 56px;
+}
+
+
+
+.key-letter {
+    font-size: 45px;
+    color:rgba(0, 0, 0, 0);
+}
+
+.nes-ash {
+}
+
+.nes-pokeball {
+
+}
+
