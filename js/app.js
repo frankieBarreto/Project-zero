@@ -112,12 +112,12 @@ const handleClick = function (event) {
         const char = $keyLetters[i].innerText;
         
         if (char === event.target.innerText) {
-            $(event.target).addClass("nes-btn is-success");
+            $(event.target).addClass("nes-btn is-success").css('pointer-events', 'none');
             $(event.target).removeClass(`is-error`);
             reveal(event);
             return;
         } else if (char !== event.target.innerText) {
-            $(event.target).addClass(`nes-btn is-error`);
+            $(event.target).addClass(`nes-btn is-error`).css('pointer-events', 'none');
         }
     }
     return reveal(event);
@@ -161,9 +161,9 @@ const revealImg = function () {
 
 const reveal = function (event) {
   if ($(event.target).hasClass(`letter-button nes-btn is-error`)) {
-    if (guessCount !== 0) {
       guessCount--;
-      $(event.target).addClass(`is-disabled`);
+    if (guessCount !== 0) {
+        $(event.target).addClass(`is-disabled`);
     } else {
         endGame();
     }
@@ -175,17 +175,13 @@ const reveal = function (event) {
     $("#score").text(`Score: ${score}`);
     revealLetter(event.target.innerText);
     win();
-    clearInterval(setTimer); // FIXME
+    
   }
 };
 
 /* SECTION TIME */
 let time = 15;
 const setTimer = function () {
-  // setInterval(function, time)
-  // if(timer === 0) {
-  //     // all images appear you took an L you bumb
-  // }
   const timer = setInterval(function () {
     if (time === 0) {
       clearInterval(timer);
@@ -232,7 +228,6 @@ const win = function() {
 
     if(score === array.length * 100) {
         $('body').empty();
-    
         return $('body').append(`<div class="nes-container is-dark with-title id="ending">
         <p class="title">GAME OVER</p>
         <p>YOU'VE SAVED THE CITY!!!</p>
