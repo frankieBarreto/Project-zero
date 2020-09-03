@@ -7,6 +7,7 @@ const wordsObj = {
   mario: ["PEACH", "MUSHROOM", "BROS.", "CASTLE", ],
   pokemon: ["LEAGUE", "KANTO", "OAK", "GAMEFREAK"],
   megaman: ["ROCK&ROLL", "PROTO", "BASS", "CAPCOM", "BLUE HELMET"],
+  kirby: ["PINK", "OP", "PUFFS", 'STARS']
 };
 
 const imgObj = {
@@ -201,11 +202,14 @@ if the timer reaches 0 the game ends
 const endGame = function () {
     if(time === 0 || guessCount === 0) {
         $('body').empty();
-    
-        $('body').append(`<div class="nes-container is-centered is-dark with-title" id="ending">
+        const $body = $('body');
+
+        $body.append(`<div class="nes-container is-centered is-dark with-title" id="ending">
         <p class="title">GAME OVER</p>
         <p>YOU'VE FAILED TO PROTECT THE CITY</p>
         </div>`).css('border', 'center');
+        const $gameover = $(`div.nes-container.is-centered.is-dark.with-title#ending`)
+        $gameover.append('<i class="nes-kirby"></i>');
     }
 };
 
