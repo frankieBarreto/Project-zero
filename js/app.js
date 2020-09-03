@@ -4,9 +4,9 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase();
 console.log(alphabet);
 
 const wordsObj = {
-  mario: ["PEACH", "MUSHROOM", "BROS."],
-  pokemon: ["LEAGUE", "KANTO", "OAK"],
-  megaman: ["ROCK&ROLL", "PROTO", "BASS", "CAPCOM"],
+  mario: ["PEACH", "MUSHROOM", "BROS.", "CASTLE", ],
+  pokemon: ["LEAGUE", "KANTO", "OAK", "GAMEFREAK"],
+  megaman: ["ROCK&ROLL", "PROTO", "BASS", "CAPCOM", "BLUE HELMET"],
 };
 
 const imgObj = {
@@ -33,12 +33,19 @@ $("button").on("click", function () {
   addLetters();
   const word = getWord();
   setKeyWord(word);
+  win();
   setTimer();
 });
 
 // make a function that creates buttons and populates the alphabet section with letter buttons
 
+const $hintBox = $('div.nes-container.with-title');
+$hintBox.hide();
+const $keyWordBox = $('section.nes-container.is-dark.with-title#key-word');
+$keyWordBox.hide();
 const addLetters = function () {
+    $hintBox.show();
+    $keyWordBox.show();
     for (c of alphabet) {
         // NOTE creates letter buttons and appends them to the alphabet section
         const $letter = $(`<button class="letter-button">${c}</button>`);
@@ -116,7 +123,7 @@ const handleClick = function (event) {
     return reveal(event);
 };
 
-/* FIXME SHOW LETTER && IMG */
+
 const revealLetter = function (char) {
     const $chars = $(`.${char}`);
     $chars.each(function () {
@@ -163,15 +170,17 @@ const reveal = function (event) {
     $("#guess").text(`Guesses: ${guessCount}`);
     return revealImg();
   } else if ($(event.target).hasClass(`letter-button nes-btn is-success`)) {
-      $(event.target).addClass(`is-disabled`)
+      $(event.target).addClass(`is-disabled`);
     score += 100;
     $("#score").text(`Score: ${score}`);
     revealLetter(event.target.innerText);
+    win();
+    clearInterval(setTimer); // FIXME
   }
 };
 
 /* SECTION TIME */
-let time = 30;
+let time = 15;
 const setTimer = function () {
   // setInterval(function, time)
   // if(timer === 0) {
@@ -197,11 +206,11 @@ const endGame = function () {
     if(time === 0 || guessCount === 0) {
         $('body').empty();
     
-        $('body').append(`<div class="nes-container is-dark with-title">
+        $('body').append(`<div class="nes-container is-centered is-dark with-title" id="ending">
         <p class="title">GAME OVER</p>
         <p>YOU'VE FAILED TO PROTECT THE CITY</p>
-        </div>`);
-    } 
+        </div>`).css('border', 'center');
+    }
 };
 
 
@@ -211,3 +220,24 @@ TODO win function
 once the players score reaches the length of the key-word * 100 
 end the game with positive ending.
 */
+
+const win = function() {
+    const $keyWord = $('section .key-letter');
+    const array = [];
+    for(let i = 0; i < $keyWord.length; i++) {
+        if(!array.includes($keyWord[i].innerText)) {
+            array.push($keyWord[i].innerText);
+        }
+    }
+
+    if(score === array.length * 100) {
+        $('body').empty();
+    
+        return $('body').append(`<div class="nes-container is-dark with-title id="ending">
+        <p class="title">GAME OVER</p>
+        <p>YOU'VE SAVED THE CITY!!!</p>
+        </div>`);
+    }
+}
+
+
