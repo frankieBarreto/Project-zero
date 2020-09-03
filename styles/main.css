@@ -9,21 +9,6 @@ body {
     display: none;
 }
 
-nes-field {
-
-}
-
-#score {
-    
-}
-
-#guess {
-
-}
-
-#hint{
-   
-}
 
 #start {
     color: whitesmoke;
@@ -41,6 +26,13 @@ nes-field {
    padding: 10px;
 }
 
+#health {
+  width: 100px;
+  height: 100px;
+  padding: 50px;
+  float: right;
+}
+
 .letter-button {
     color: rgba(30, 21, 85, 0.849);
     background-color: rgb(178, 194, 211);
@@ -56,16 +48,20 @@ nes-field {
     display: inline-block;
     left:43%
 }
-.nes-container.is-dark.with-title#key-word{
+.nes-container.is-dark.with-title #key-word{
     display: inline-block;
-    left:35%;
     padding:10px;
+    marging:10px;
 }
 
 .nes-container.with-title.is-centered{
-color:rgb(238, 182, 39);
-border: none;
-top:10px
+color:rgb(212, 160, 29);
+/* border: none; */
+  width: 50px;
+  height: 50px;
+  padding: 50px;
+  border: none;
+  box-sizing: border-box;
 }
 
 
@@ -86,10 +82,4 @@ top:10px
     color:rgba(0, 0, 0, 0);
 }
 
-.nes-ash {
-}
-
-.nes-pokeball {
-
-}
 

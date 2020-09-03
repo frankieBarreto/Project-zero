@@ -7,7 +7,8 @@ const wordsObj = {
   mario: ["PEACH", "MUSHROOM", "BROS.", "CASTLE", ],
   pokemon: ["LEAGUE", "KANTO", "OAK", "GAMEFREAK"],
   megaman: ["ROCK&ROLL", "PROTO", "BASS", "CAPCOM", "BLUE HELMET"],
-  kirby: ["PINK", "OP", "PUFFS", 'STARS']
+  kirby: ["PINK", "O.P.", "PUFFS", 'STARS'],
+  // superfamicom: ['nostalgia']
 };
 
 const imgObj = {
@@ -178,7 +179,7 @@ const reveal = function (event) {
 
 /* SECTION TIME */
 let timer;
-let time = 8;
+let time = 100000;
 const setTimer = function () {
   timer = setInterval(function () {
     if (guessCount === 0 || time === 0) {
