@@ -34,13 +34,18 @@ nes-field {
     transform: translate(-50%, -50%);
 }
 
-
+#alphabet {
+   display: grid;
+   grid-template-columns: 50px 50px 50px 50px;
+   justify-content: center;
+   padding: 10px;
+}
 
 .letter-button {
     color: rgba(30, 21, 85, 0.849);
     background-color: rgb(178, 194, 211);
-    padding: auto;
-    margin: 8px;
+    margin: 5px;
+    padding: 5px;
 }
 
 .nes-btn is-disabled {

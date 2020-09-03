@@ -164,8 +164,6 @@ const reveal = function (event) {
       guessCount--;
     if (guessCount !== 0) {
         $(event.target).addClass(`is-disabled`);
-    } else {
-        endGame();
     }
     $("#guess").text(`Guesses: ${guessCount}`);
     return revealImg();
@@ -174,16 +172,17 @@ const reveal = function (event) {
     score += 100;
     $("#score").text(`Score: ${score}`);
     revealLetter(event.target.innerText);
-    win();
+    win(timer);
   }
 };
 
 /* SECTION TIME */
-let time = 15;
+let timer;
+let time = 8;
 const setTimer = function () {
-  const timer = setInterval(function () {
-    if (guessCount === 0 && time === 0 && time !== 15) {
-      
+  timer = setInterval(function () {
+    if (guessCount === 0 || time === 0) {
+      clearInterval(timer);
       endGame();
     } else {
       time--;
@@ -198,8 +197,7 @@ if the guess count is less than 0 the game ends
 if the timer reaches 0 the game ends
 */
 const endGame = function () {
-    if(time === 0 || guessCount === 0) {
-      clearInterval(setTimer);
+      clearInterval(timer);
         $('body').empty();
         const $body = $('body');
 
@@ -209,7 +207,6 @@ const endGame = function () {
         </div>`).css('border', 'center');
         const $gameover = $(`div.nes-container.is-centered.is-dark.with-title#ending`)
         $gameover.append('<i class="nes-kirby"></i>');
-    }
 };
 
 
@@ -230,10 +227,10 @@ const win = function() {
     }
 
     if(score === array.length * 100) {
-      clearInterval(setTimer);
+      clearInterval(timer)
         $('body').empty();
         return $('body').append(`<div class="nes-container is-dark with-title id="ending">
-        <p class="title">YOU WIN!!!</p>
+        <p class="title">GAME OVER</p>
         <p>YOU'VE SAVED THE CITY!!!</p>
         </div>`);
     }
