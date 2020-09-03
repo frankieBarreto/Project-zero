@@ -44,7 +44,10 @@ const $hintBox = $('div.nes-container.with-title');
 $hintBox.hide();
 const $keyWordBox = $('section.nes-container.is-dark.with-title#key-word');
 $keyWordBox.hide();
+const $health = $('#health');
+$health.hide();
 const addLetters = function () {
+    $health.show();
     $hintBox.show();
     $keyWordBox.show();
     for (c of alphabet) {
@@ -135,27 +138,56 @@ const revealLetter = function (char) {
 
 let guessCount = 5;
 let score = 0;
+// const revealImg = function () {
+//   switch (guessCount) {
+//     case 0:
+//       guessCount === 4;
+//       $("#left-arm").attr("src", imgObj.leftArm).css('display', 'block');
+//       break;
+//     case 1:
+//       guessCount === 3;
+//       $("#head").attr("src", imgObj.head).css('display', 'block');
+//       break;
+//     case 2:
+//       guessCount === 2;
+//       $(" #right-arm").attr("src", imgObj.rightArm).css('display', 'block');
+//       break;
+//     case 3:
+//       guessCount === 1;
+//       $(" #right-leg").attr("src", imgObj.rightLeg).css('display', 'block');
+//       break;
+//     case 4:
+//       guessCount === 0;
+//       $(" #left-leg").attr("src", imgObj.rightLeg).css('display', 'block');
+//       break;
+//   }
+// };
 const revealImg = function () {
   switch (guessCount) {
     case 0:
       guessCount === 4;
-      $("#left-arm").attr("src", imgObj.leftArm).css('display', 'block');
+      // $("#left-arm").attr("src", imgObj.leftArm).css('display', 'block');
+      $("#1").remove();
       break;
     case 1:
       guessCount === 3;
-      $("#head").attr("src", imgObj.head).css('display', 'block');
+      $("#2").remove();
+      // $("#head").attr("src", imgObj.head).css('display', 'block');
       break;
     case 2:
       guessCount === 2;
-      $(" #right-arm").attr("src", imgObj.rightArm).css('display', 'block');
+      $("#3").remove();
+      // $(" #right-arm").attr("src", imgObj.rightArm).css('display', 'block');
       break;
     case 3:
       guessCount === 1;
-      $(" #right-leg").attr("src", imgObj.rightLeg).css('display', 'block');
+      $("#4").remove();
+      // $(" #right-leg").attr("src", imgObj.rightLeg).css('display', 'block');
       break;
     case 4:
       guessCount === 0;
-      $(" #left-leg").attr("src", imgObj.rightLeg).css('display', 'block');
+      $("#5").remove();
+      // $(" #left-leg").attr("src", imgObj.rightLeg).css('display', 'block');
       break;
   }
 };

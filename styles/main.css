@@ -40,18 +40,15 @@ body {
     padding: 5px;
 }
 
-.nes-btn is-disabled {
-
-}
 
 .nes-container.is-dark.with-title{
     display: inline-block;
     left:43%
 }
-.nes-container.is-dark.with-title #key-word{
+#key-word{
     display: inline-block;
     padding:10px;
-    marging:10px;
+    margin:10px;
 }
 
 .nes-container.with-title.is-centered{
@@ -64,12 +61,9 @@ color:rgb(212, 160, 29);
   box-sizing: border-box;
 }
 
-
-.nes-container.is-rounded.is-dark {
-    padding-right: 56px;
-}
-
 #ending {
+    width: 50%;
+    height: 30%;
     position: absolute;
     top:50%;
     left:50%;
