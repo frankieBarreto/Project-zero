@@ -138,31 +138,7 @@ const revealLetter = function (char) {
 
 let guessCount = 5;
 let score = 0;
-// const revealImg = function () {
-//   switch (guessCount) {
-//     case 0:
-//       guessCount === 4;
-//       $("#left-arm").attr("src", imgObj.leftArm).css('display', 'block');
-//       break;
-//     case 1:
-//       guessCount === 3;
-//       $("#head").attr("src", imgObj.head).css('display', 'block');
-//       break;
-//     case 2:
-//       guessCount === 2;
-//       $(" #right-arm").attr("src", imgObj.rightArm).css('display', 'block');
-//       break;
-//     case 3:
-//       guessCount === 1;
-//       $(" #right-leg").attr("src", imgObj.rightLeg).css('display', 'block');
-//       break;
-//     case 4:
-//       guessCount === 0;
-//       $(" #left-leg").attr("src", imgObj.rightLeg).css('display', 'block');
-//       break;
-//   }
-// };
-const revealImg = function () {
+const removeHeart = function () {
   switch (guessCount) {
     case 0:
       guessCount === 4;
@@ -199,7 +175,7 @@ const reveal = function (event) {
         $(event.target).addClass(`is-disabled`);
     }
     $("#guess").text(`Guesses: ${guessCount}`);
-    return revealImg();
+    return removeHeart();
   } else if ($(event.target).hasClass(`letter-button nes-btn is-success`)) {
       $(event.target).addClass(`is-disabled`);
     score += 100;
@@ -211,7 +187,7 @@ const reveal = function (event) {
 
 /* SECTION TIME */
 let timer;
-let time = 100000;
+let time = 30;
 const setTimer = function () {
   timer = setInterval(function () {
     if (guessCount === 0 || time === 0) {
@@ -229,6 +205,7 @@ SECTION
 if the guess count is less than 0 the game ends 
 if the timer reaches 0 the game ends
 */
+
 const endGame = function () {
       clearInterval(timer);
         $('body').empty();
@@ -262,11 +239,18 @@ const win = function() {
     if(score === array.length * 100) {
       clearInterval(timer)
         $('body').empty();
+        
+        // $('body').css('background-image', 'url(../../styles/imgs/train.gif)');
+        document.getElementById('body').style.backgroundImage = 'url("../styles/imgs/train.gif")';  
+
+
         return $('body').append(`<div class="nes-container is-dark with-title id="ending">
         <p class="title">GAME OVER</p>
         <p>YOU'VE SAVED THE CITY!!!</p>
         </div>`);
     }
 }
+
+
 
 
