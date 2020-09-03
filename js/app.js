@@ -34,7 +34,6 @@ $("button").on("click", function () {
   addLetters();
   const word = getWord();
   setKeyWord(word);
-  win();
   setTimer();
 });
 
@@ -176,7 +175,6 @@ const reveal = function (event) {
     $("#score").text(`Score: ${score}`);
     revealLetter(event.target.innerText);
     win();
-    
   }
 };
 
@@ -184,8 +182,8 @@ const reveal = function (event) {
 let time = 15;
 const setTimer = function () {
   const timer = setInterval(function () {
-    if (time === 0) {
-      clearInterval(timer);
+    if (guessCount === 0 && time === 0 && time !== 15) {
+      
       endGame();
     } else {
       time--;
@@ -201,6 +199,7 @@ if the timer reaches 0 the game ends
 */
 const endGame = function () {
     if(time === 0 || guessCount === 0) {
+      clearInterval(setTimer);
         $('body').empty();
         const $body = $('body');
 
@@ -231,9 +230,10 @@ const win = function() {
     }
 
     if(score === array.length * 100) {
+      clearInterval(setTimer);
         $('body').empty();
         return $('body').append(`<div class="nes-container is-dark with-title id="ending">
-        <p class="title">GAME OVER</p>
+        <p class="title">YOU WIN!!!</p>
         <p>YOU'VE SAVED THE CITY!!!</p>
         </div>`);
     }

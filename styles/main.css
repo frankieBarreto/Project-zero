@@ -34,9 +34,7 @@ nes-field {
     transform: translate(-50%, -50%);
 }
 
-#alphabet {
-    
-}
+
 
 .letter-button {
     color: rgba(30, 21, 85, 0.849);
@@ -49,13 +47,20 @@ nes-field {
 
 }
 
-.nes-container.is-dark {
-    display: inline-block;   
+.nes-container.is-dark.with-title{
+    display: inline-block;
+    left:43%
+}
+.nes-container.is-dark.with-title#key-word{
+    display: inline-block;
+    left:35%;
+    padding:10px;
 }
 
 .nes-container.with-title.is-centered{
 color:rgb(238, 182, 39);
-border: none
+border: none;
+top:10px
 }
 
 
