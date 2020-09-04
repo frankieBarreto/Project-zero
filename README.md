@@ -26,7 +26,7 @@
 
 -> the hint is an <h2> selected at random from the hint object {word:[hintArray]}?
 
--> score starts at 0. Every correct letter gets the player 100 points
+-> score starts at 0. Every correct letter gets the player 100 points.
 
 -> the <img>'s are kept in a section inside <div>s appearing  every wrong clikced letter
 
