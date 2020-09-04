@@ -4,11 +4,17 @@ const wordsObj = {
   pokemon: ["LEAGUE", "KANTO", "OAK", "GAMEFREAK"],
   megaman: ["ROCK&ROLL", "PROTO", "BASS", "CAPCOM", "BLUE HELMET"],
   kirby: ["PINK-BLACK-HOLE", "O.P.", "PUFFS", "STARS"],
-  overwatch: ["C9'D", "I NEED HEALING",],
+  overwatch: ["C9'D", "I NEED HEALING"],
   masseffect: ["GETH", "ASARI", "QUARIANS"],
 };
-let copyObj = wordsObj;
 
+let copyObj = wordsObj;
+let guessCount = 5;
+let score = 0;
+let wordPoints = 0;
+let timer;
+let time = 30;
+let round = 1;
 /*
  SECTION 
  add event listener
@@ -124,9 +130,6 @@ const revealLetter = function (char) {
   });
 };
 
-let guessCount = 5;
-let score = 0;
-let wordPoints = 0;
 const removeHeart = function () {
   switch (guessCount) {
     case 0:
@@ -172,8 +175,7 @@ const reveal = function (event) {
 };
 
 /* SECTION TIME */
-let timer;
-let time = 300000;
+
 const setTimer = function () {
   timer = setInterval(function () {
     if (guessCount === 0 || time === 0) {
@@ -225,18 +227,19 @@ const endGame = function () {
 };
 
 /* 
-NOTE win function
+NOTE rounds function
 
 once the players score reaches the length of the key-word * 100 
 end the game with positive ending.
 */
+
 function isEmpty(obj) {
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) return false;
   }
   return true;
 }
-let round = 1;
+
 const rounds = function () {
   let keyWord = $("section .key-letter");
   const array = [];
@@ -247,7 +250,7 @@ const rounds = function () {
   }
 
   if (wordPoints === array.length * 100) {
-    time+=10;
+    time += 10;
     round++;
     $("#round").text(`Round:${round}`);
     wordPoints = 0;
