@@ -1,5 +1,4 @@
 body {
-   /* background-image: url('../styles/imgs/train.gif'); */
    background-image: url('../styles/imgs/city.gif');
    height: 100vh;
    background-size: cover;
@@ -45,6 +44,7 @@ body {
     display: inline-block;
     left:43%
 }
+
 #key-word{
     display: inline-block;
     padding:10px;

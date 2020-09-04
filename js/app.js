@@ -4,11 +4,12 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toLowerCase();
 console.log(alphabet);
 
 const wordsObj = {
-  mario: ["PEACH", "MUSHROOM", "BROS.", "CASTLE", ],
+  mario: ["PEACH", "MUSHROOM", "BROS.", "CASTLE",],
   pokemon: ["LEAGUE", "KANTO", "OAK", "GAMEFREAK"],
   megaman: ["ROCK&ROLL", "PROTO", "BASS", "CAPCOM", "BLUE HELMET"],
   kirby: ["PINK", "O.P.", "PUFFS", 'STARS'],
-  // superfamicom: ['nostalgia']
+  jazz:["SMOOTH", "BRASS", "SAXOPHONE", ],
+  kazoo: ["FRENCH HARP", "MOUTH HARP", "HARMONICA"]
 };
 
 const imgObj = {
@@ -201,9 +202,11 @@ const setTimer = function () {
 };
 
 /* 
-SECTION
+NOTE
+end game screen
 if the guess count is less than 0 the game ends 
 if the timer reaches 0 the game ends
+removes 
 */
 
 const endGame = function () {
@@ -221,11 +224,12 @@ const endGame = function () {
 
 
 /* 
-TODO win function
+NOTE win function
 
 once the players score reaches the length of the key-word * 100 
 end the game with positive ending.
 */
+
 
 const win = function() {
     const $keyWord = $('section .key-letter');
@@ -239,10 +243,6 @@ const win = function() {
     if(score === array.length * 100) {
       clearInterval(timer)
         $('body').empty();
-        
-        // $('body').css('background-image', 'url(../../styles/imgs/train.gif)');
-        document.getElementById('body').style.backgroundImage = 'url("../styles/imgs/train.gif")';  
-
 
         return $('body').append(`<div class="nes-container is-dark with-title id="ending">
         <p class="title">GAME OVER</p>
